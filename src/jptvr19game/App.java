@@ -16,15 +16,24 @@ public class App {
         System.out.println("Привет");
         System.out.println("Программа задула число, угадай:");
         Random random = new Random();
-        int myNamber = random.nextInt(5 - 0 + 1 ) + 0;
-        Scanner scanner = new Scanner(System.in);
-        int gamerNamber =  scanner.nextInt();
-        if (myNamber == gamerNamber){
+        int attempt = 0;
+        do {            
+            int myNamber = random.nextInt(5 - 0 + 1 ) + 0;
+            Scanner scanner = new Scanner(System.in);
+            int gamerNamber =  scanner.nextInt();
+            if (myNamber == gamerNamber){
             System.out.println("Ты выиграл!");
             System.out.println("Число: " + myNamber);
-        }else{
-            System.out.println("Ты проиграл! Было задумано: " + myNamber);
+            }else{
+                if(attempt > 1) {
+                System.out.println("Ты проиграл! Было задумано: " 
+                        + myNamber);
+                break;
+                }else{
+                    System.out.println("Попробуй ещё раз");
+                }
+                attempt++;
         }
-    }
+        }while (true);}
     
 }
